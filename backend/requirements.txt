@@ -78,3 +78,6 @@ duckduckgo-search~=6.2.1
 docker~=7.1.0
 pytest~=8.3.2
 pytest-docker~=3.1.1
+
+## Additional libraries
+atlassian-python-api
