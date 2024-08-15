@@ -72,12 +72,12 @@ pytube==15.0.0
 
 extract_msg
 pydub
-duckduckgo-search~=6.1.7
-
-atlassian-python-api
 duckduckgo-search~=6.2.1
 
 ## Tests
 docker~=7.1.0
 pytest~=8.3.2
 pytest-docker~=3.1.1
+
+## Additional libraries
+atlassian-python-api
