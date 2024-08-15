@@ -1,5 +1,5 @@
 import inspect
-from typing import get_type_hints, List, Dict, Any
+from typing import get_type_hints
 
 
 def doc_to_dict(docstring):
@@ -16,7 +16,7 @@ def doc_to_dict(docstring):
     return ret_dict
 
 
-def get_tools_specs(tools) -> List[dict]:
+def get_tools_specs(tools) -> list[dict]:
     function_list = [
         {"name": func, "function": getattr(tools, func)}
         for func in dir(tools)
@@ -59,7 +59,10 @@ def get_tools_specs(tools) -> List[dict]:
                         for param_name, param_annotation in get_type_hints(
                             function
                         ).items()
-                        if param_name != "return" and param_name != "__user__"
+                        if param_name != "return"
+                        and not (
+                            param_name.startswith("__") and param_name.endswith("__")
+                        )
                     },
                     "required": [
                         name
