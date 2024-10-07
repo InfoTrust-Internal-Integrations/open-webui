@@ -17,7 +17,7 @@ ARG UID=0
 ARG GID=0
 
 ######## WebUI frontend ########
-FROM --platform=linux/amd64 node:21-alpine3.19 as build
+FROM --platform=linux/amd64 node:22-alpine3.20 as build
 ARG BUILD_HASH
 
 WORKDIR /app
@@ -50,6 +50,9 @@ ENV ENV=prod \
     USE_CUDA_DOCKER_VER=cu121 \
     USE_EMBEDDING_MODEL_DOCKER=sentence-transformers/all-MiniLM-L6-v2 \
     USE_RERANKING_MODEL_DOCKER=""
+
+## InfoGPT Customizations ##
+ENV WEBUI_NAME="InfoGPT"
 
 ## Basis URL Config ##
 ENV OLLAMA_BASE_URL="/ollama" \
